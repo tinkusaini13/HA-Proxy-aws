@@ -1,0 +1,58 @@
+- hosts: web
+
+  tasks:
+          - name: Installing HTTPD Software
+            package:
+                    name: httpd
+                    state: present
+
+          - name: Installing PHP
+            package:
+                    name: php
+                    state: present
+
+          - name: Copy the PHP webpage
+            template:
+                    dest: /var/www/html/index.php
+                    src: index.php
+
+            notify: Web-service
+
+          - name: start httpd web server
+            service:
+                    name: httpd
+                    state: started
+
+  handlers:
+          - name: Web-service
+            service:
+                    name: httpd
+                    state: restarted
+
+
+
+- hosts: lb
+
+  tasks:
+          - name: Installing HAProxy Software
+            package:
+                    name: haproxy
+                    state: present
+
+          - name: Configuring the conf file of haproxy
+            template:
+                    src: haproxy.cfg
+                    dest: /etc/haproxy/haproxy.cfg
+
+            notify: haproxy service
+
+          - name: start the haproxy service
+            service:
+                      name: haproxy
+                      state: started
+
+  handlers:
+          - name: haproxy service
+            service:
+                    name: haproxy
+                    state: restarted
