@@ -58,15 +58,44 @@ create a index.html file
 
 configure the  HA-proxy configuration file 
 
-Link here: 
+Link here: https://github.com/tinkusaini13/HA-Proxy-aws/blob/main/haproxy.cfg
+
+![image](https://user-images.githubusercontent.com/88707521/156541972-ca716381-3bd4-4ff7-af21-d5799c42e9b1.png)
 
 
+Create main playbook of Setup HA-Proxy And httpd webserver :
 
+link for main.yml: 
 
-setup HA-Proxy required
+HA-proxy yml file :
 
- aws ec2-intance private key (( web.pem )) and main  playbook is  master.yml 
+![image](https://user-images.githubusercontent.com/88707521/156542431-289cfa0c-25a6-4f0d-abb7-0eda26b50da9.png)
+
+httpd yml file: 
+
+![image](https://user-images.githubusercontent.com/88707521/156542800-70c8bfce-3862-4c96-9dde-35dbef146842.png)
+
+All configuration is completed run main.yml  playbook
+
+Required file before run main playbook:
+
+1. aws ec2-intance private key (( web.pem ))
+2. inventory
+3. ansible.cfg
+
+How to run main.yml playbook:
 
 ansible-playbook  master.yml  -i inventory --private-key="web.pem"
 
+http://ip-HA-proxy:8080/
+
 http://13.233.76.19:8080/
+
+Refresh Browser see every time change the ip address.
+
+Thank you
+
+
+
+
+
