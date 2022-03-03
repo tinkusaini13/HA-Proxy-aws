@@ -1,6 +1,6 @@
 <pre>
 <?php
-echo "hello"
+print `cat /proc/cpuinfo`;
 print `/usr/sbin/ifconfig`;
 ?>
 </pre>
