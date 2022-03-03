@@ -37,11 +37,15 @@ create a ec2-instance and install ansible
  2. pip3 install ansible --user
  
  
- create a inventory and ansible.cfg file 
+ create a inventory and ansible.cfg file:
+ 
+ https://github.com/tinkusaini13/HA-Proxy-aws/blob/main/inventory
  
  ![image](https://user-images.githubusercontent.com/88707521/156539575-e8019117-f8b1-4b15-be9e-186e06d74f4f.png)
 
 ansible.cfg file :
+
+ https://github.com/tinkusaini13/HA-Proxy-aws/blob/main/ansible.cfg
 
 ![image](https://user-images.githubusercontent.com/88707521/156539770-528f2ed5-a018-4db5-b499-2052f2cda867.png)
 
@@ -53,6 +57,8 @@ ansible all -m ping -i inventory --private-key="web.pem"
 
 
 create a index.html file 
+
+https://github.com/tinkusaini13/HA-Proxy-aws/blob/main/index.php
 
 ![image](https://user-images.githubusercontent.com/88707521/156541256-e7095d0a-0f7b-4362-9adb-058be4da924e.png)
 
